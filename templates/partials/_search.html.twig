@@ -1,0 +1,7 @@
+<ul>
+	{% for tvshow in tvshows %}
+		<li>
+			<a href="{{ path('tvshow_slug', {slug:tvshow.slug}) }}">{{ tvshow.title }}</a>
+		</li>
+	{% endfor %}
+</ul>

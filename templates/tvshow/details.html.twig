@@ -1,0 +1,53 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    {{tvShow.title}} -
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<main>
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                {% for category in tvShow.categories %}
+                    <a href="#"><span class="badge bg-secondary">{{ category.name }}</span></a>            
+                {% endfor %}
+                <h1 class="fw-light">{{tvShow.title}}</h1>
+                <img src="{{ asset('images/' ~ tvShow.imageurl) }}" alt="" height="400">
+                <p class="lead text-muted">
+                {% for season in tvShow.seasons %}
+                    <a href=""><span class="badge bg-secondary">Saison {{ season.seasonNumber }}</span></a>
+                        {% for episode in season.episodes %}
+                            <p>{{ episode.title }}</p>    
+                        {% endfor %}
+                    {% endfor %}
+                </p>
+                <p class="lead text-muted">
+                {% for char in tvShow.characters %}
+                    Personnages : {{ char.firstname }}
+                {% endfor %}
+                </p>
+            </div>
+        </div>
+    </section>
+
+<section>
+   
+</section>
+
+ <div class="py-5 bg-light">
+    <div class="container">
+        <p>
+            {{tvShow.synopsis}}
+        </p>
+    </div>
+</div>
+
+<div class="py-5 bg-light">
+    <div class="container">
+        <a href="{{ path('tvshow_list') }}">Retour à la liste</a>
+    </div>
+</div>
+
+{% endblock %}

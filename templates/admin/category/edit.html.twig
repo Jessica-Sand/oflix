@@ -1,0 +1,12 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block content %}
+	{{ form(formView) }}
+
+	<div class="py-5 bg-light">
+		<div class="container">
+			<a href="{{ path('category_list') }}">Retour à la liste</a>
+		</div>
+	</div>
+	
+{% endblock %}

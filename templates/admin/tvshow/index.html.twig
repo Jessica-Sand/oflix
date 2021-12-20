@@ -1,0 +1,54 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}
+	Série |
+	{{parent()}}
+{% endblock %}
+
+{% block content %}
+
+
+	<section class="text-center container">
+		<div class="row">
+			<div class="col-lg-6 col-md-8 mx-auto">
+				<h1 class="fw-light">
+					Séries
+					<small class="fs-5">
+						<a href="{{ path('admin_tvshow_add') }}">Nouvelle série</a>
+					</small>
+				</h1>
+			</div>
+		</div>
+	</section>
+
+	<div class="container">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<td>#</td>
+					<td>Titre</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</thead>
+			<tbody>
+				{% for tvshow in tvshows %}
+					<tr>
+						<td>{{tvshow.id}}</td>
+						<td>{{tvshow.title}}</td>
+						<td>
+							<a href="{{ path('admin_tvshow_show', {id:tvshow.id}) }}" class="btn btn-sm btn-outline-secondary">Voir</a>
+						</td>
+						<td>
+							<a href="{{ path('admin_tvshow_edit', {id:tvshow.id}) }}" class="btn btn-sm btn-outline-secondary">Editer</a>
+						</td>
+						<td>
+							<a href="{{ path('admin_tvshow_delete', {id:tvshow.id, token:csrf_token('delete-item')}) }}" class="btn btn-sm btn-outline-secondary">Supprimer</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}

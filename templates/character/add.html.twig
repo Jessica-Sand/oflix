@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Personnages |
+	{{parent()}}
+{% endblock %}
+
+{% block body %}
+
+	<main class="container">
+		{{ form(formView) }}
+		</main>
+	{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Séries |
+	{{parent()}}
+{% endblock %}
+
+{% block body %}
+
+	<main class="container">
+		{{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+		</main>
+	{% endblock %}

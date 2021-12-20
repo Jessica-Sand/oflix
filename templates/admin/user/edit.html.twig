@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier |
+	{{parent()}}
+{% endblock %}
+
+{% block body %}
+    <h1>Editer l'utilisateur</h1>
+
+    {{ include('admin/user/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('admin_user_index') }}">revenir à la liste des utilisateurs</a>
+
+    {{ include('admin/user/_delete_form.html.twig') }}
+{% endblock %}

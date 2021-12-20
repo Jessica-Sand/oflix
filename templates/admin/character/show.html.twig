@@ -1,0 +1,38 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block content %}
+	<section class="text-center container">
+		<div class="row">
+			<div class="col-lg-6 col-md-8 mx-auto">
+				<h1 class="fw-light">{{character.firstname}} {{character.lastname}}</h1>
+				<p>
+					<a class="btn btn-sm btn-outline-secondary" href="{{ path('admin_character_edit', {id:character.id}) }}">Editer</a>
+					|
+					<a class="btn btn-sm btn-outline-secondary" href="{{ path('admin_character_delete', {id:character.id, token:csrf_token('delete-character')}) }}">Supprimer</a>
+
+
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<div class="py-5 bg-light">
+		<div class="container">
+			<p>
+				{{character.bio}}
+			</p>
+			<ul>
+			{% for character in character.tvShows %}
+				<li>
+					{{ character.title }}
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+		<div class="container">
+			<p>
+				<a href="{{path('admin_character_list')}}">Retour à l'accueil</a>
+			</p>
+		</div>
+	</div>
+{% endblock %}

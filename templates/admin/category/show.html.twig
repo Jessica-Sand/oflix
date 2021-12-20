@@ -1,0 +1,33 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block content %}
+	<section class="text-center container">
+		<div class="row">
+			<div class="col-lg-6 col-md-8 mx-auto">
+				<h1 class="fw-light">{{category.name}}</h1>
+				<p>
+					<a class="btn btn-sm btn-outline-secondary" href="{{ path('admin_category_edit', {id:category.id}) }}">Editer</a>
+					|
+					<a class="btn btn-sm btn-outline-secondary" href="{{ path('admin_category_delete', {id:category.id, token:csrf_token('delete-category')}) }}">Supprimer</a>
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<div class="py-5 bg-light">
+		<div class="container">
+			<ul>
+			{% for category in category.tvShows %}
+				<li>
+					{{ category.title }}
+				</li>
+			{% endfor %}
+			<ul>
+		</div>
+		<div class="container">
+			<p>
+				<a href="{{path('admin_category_list')}}">Retour à l'accueil</a>
+			</p>
+		</div>
+	</div>
+{% endblock %}

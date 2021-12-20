@@ -1,0 +1,14 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block content %}
+
+	<!-- On désactive la validation HTML5 pour laisse Symfony s'en occuper -->
+	{{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+	<div class="py-5 bg-light">
+		<div class="container">
+			<a href="{{ path('category_list') }}">Retour à la liste</a>
+		</div>
+	</div>
+
+	{% endblock %}

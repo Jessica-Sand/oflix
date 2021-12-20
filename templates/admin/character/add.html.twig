@@ -1,0 +1,11 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block content %}
+
+	<main class="container">
+		{{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
+		</main>
+
+		<a href="{{ path('admin_character_list') }}">Retour à la liste</a>
+
+	{% endblock %}

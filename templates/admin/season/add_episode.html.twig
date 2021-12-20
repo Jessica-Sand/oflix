@@ -1,0 +1,22 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block content %}
+
+	<h1>
+		{{season.tvShow.title}}
+		- Saison numéro
+		{{season.seasonNumber}}
+	</h1>
+
+	<h2>Nouvel épisode</h2>
+	{{form_start(form)}}
+
+	{{form_row(form.episodeNumber)}}
+	{{form_row(form.title)}}
+	{{form_row(form.publishedAt)}}
+
+	<button type="submit" class="btn btn-secondary">Valider</button>
+
+	{{form_end(form)}}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	<main
+		class="container">
+		<!--
+					On désactive la validation HTML5 pour laisse Symfony s'en
+					occuper 
+				-->
+		{{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
+		</main>
+
+		<a href="{{ path('category_list') }}">Retour à la liste</a>
+
+	{% endblock %}

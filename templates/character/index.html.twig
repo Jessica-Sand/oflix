@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CharacterController!
+{% endblock %}
+
+{% block body %}
+	<ul>
+		{% for character in characters %}
+			<li>{{character.firstname}}
+				{{character.lastname}}</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

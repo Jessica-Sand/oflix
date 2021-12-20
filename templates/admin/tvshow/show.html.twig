@@ -1,0 +1,83 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block title %}
+	{{tvshow.title}}
+	-
+	{{ parent() }}
+{% endblock %}
+
+{% block content %}
+
+	<section class="py-5 text-center container">
+		<div class="row">
+			<div class="col-lg-6 col-md-8 mx-auto">
+				<h1 class="fw-light">{{tvshow.title}}</h1>
+				<p>
+					<a class="btn btn-sm btn-outline-secondary" href="{{ path('admin_tvshow_edit', {id:tvshow.id}) }}">Editer</a>
+					|
+					<a class="btn btn-sm btn-outline-secondary" href="{{ path('admin_tvshow_delete', {id:tvshow.id, token:csrf_token('delete-item')}) }}">Supprimer</a>
+
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<div class="py-3 bg-light">
+		<div class="container">
+			<h2>Categories</h2>
+			<ul class="list-group list-group-flush">
+				{% for tvshow in tvshow.categories %}
+					<li class="list-group-item">{{ tvshow.name }}</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	<div class="py-3 bg-light">
+		<div class="container">
+			<h2 class="fw-light">Saisons 
+				<a class="btn btn-sm btn-outline-secondary" href="{{ path('admin_tvshow_season_add', {id:tvshow.id}) }}">
+					Ajouter
+				</a>
+			</h2>
+			{% for season in tvshow.seasons %}
+			<p class="lead text-muted">
+				<a class="text-decoration-none text-dark" href="{{ path('admin_season_details', {id:season.id}) }}">
+					<span class="badge bg-secondary">
+					Saison {{ season.seasonNumber }}
+					</span>
+				</a>
+				<ul class="list-group">
+					{% for episode in season.episodes %}
+						<li class="list-group-item">{{ episode.title }}</li>
+						{% endfor %}
+				</ul>
+			</p>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="py-3 bg-light">
+		<div class="container">
+			<h2>Personnages
+				<a class="btn btn-sm btn-outline-secondary" href="{{ path('admin_tvshow_character_add', {id:tvshow.id}) }}">
+					Ajouter
+				</a>
+			</h2>
+			<p class="lead text-muted">
+				{% for char in tvshow.characters %}
+					{{ char.firstname }} {{ char.lastname }} -
+				{% endfor %}
+			</p>
+		</div>
+	</div>
+
+	<div class="py-3 bg-light">
+		<div class="container">
+			<p>
+				<a href="{{path('admin_tvshow_list')}}">Retour à la liste</a>
+			</p>
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Hello SeasonController!
+{% endblock %}
+
+{% block content %}
+
+	<h1>
+		{{season.tvShow.title}}
+		- Saison numéro
+		{{season.seasonNumber}}
+	</h1>
+
+	<p>
+		<a href="{{ path('admin_season_episode_add', {id:season.id}) }}">Ajouter un épisode</a>
+	</p>
+
+	<h2>Episodes de la saison</h2>
+	<ul>
+		{% for episode in season.episodes %}
+			<li>{{ episode.title }}</li>
+		{% endfor %}
+	</ul>
+
+{% endblock %}

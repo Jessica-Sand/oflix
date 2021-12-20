@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Résultat de la recherche :
+	{{searchValue}}
+	|
+	{{parent()}}
+{% endblock %}
+
+{% block body %}
+	{% include "partials/_search.html.twig" %}
+{% endblock %}
