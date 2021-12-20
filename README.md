@@ -1,6 +1,6 @@
 ## Symfony - Oflix
 
-<img src="oflix/public/images/Oflix.png">
+<img src="public/images/Oflix.png">
 
 # Création d'une interface utilisateur :
 
